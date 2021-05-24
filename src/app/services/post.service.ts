@@ -11,6 +11,6 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   postOrder(data: PinModel): any {
-    return this.http.post<PinModel>(this.baseUrl + '/addOrder', data);
+    return this.http.post<PinModel>(this.baseUrl + '/addOrder', JSON.stringify(data));
   }
 }

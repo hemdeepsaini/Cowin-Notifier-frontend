@@ -49,13 +49,13 @@ ngOnInit(): void {
 
   submit(){
     let pinmodel = new PinModel();
-    pinmodel.age = this.pin.value;
-    pinmodel.pin = this.age.value;
+    pinmodel.pin = this.pin.value;
+    pinmodel.age = this.age.value;
     pinmodel.email = this.email.value;
    
     
     console.log(pinmodel)
-    this.toast.success("Tailoring Added Successfully");
+    console.log(JSON.stringify(pinmodel));
     this.PinForm.reset();
       this.service.postOrder(pinmodel).subscribe(res=>{
         //save data
