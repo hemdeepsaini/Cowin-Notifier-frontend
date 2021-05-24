@@ -34,15 +34,16 @@
 
           </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-10">
             <h5 id="asd">Fill the fields carefully otherwise you will Not recieve notification</h5>
           </div>
+          <div class="col-md-2"> 
+          <button type="submit" mat-raised-button color="primary" [disabled]="!PinForm.valid">Submit</button> 
+          <button type="button" mat-raised-button (click)="cancel()" style="margin-left: 8px;">Cancel</button>
+        </div>
         </div>
         
-        <div class="example-button-row"> 
-          <button type="submit" mat-raised-button color="primary" [disabled]="!PinForm.valid">Submit</button>
-          <button type="button" mat-raised-button (click)="cancel()">Cancel</button>
-        </div>
+        
         
     </div>
   </form>

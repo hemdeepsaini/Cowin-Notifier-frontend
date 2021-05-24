@@ -36,10 +36,6 @@ form{
 .barBg{
   background-image:linear-gradient(to right, rgb(211, 136, 207) , rgb(85, 2, 105));
 }
-.example-button-row {
-  padding-left: 70%;
-  /* background-color:#e4e4e4; */
-}
 
 mat-form-field {
   /* margin-right: 40px;
@@ -48,7 +44,7 @@ mat-form-field {
 }
 
 button {
-  margin: 10px;
+  margin: 0px;
 }
 
 .row {
