@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  appUrl: 'http://localhost:4200',
+  production: false,
+  hostUrl: 'https://localhost',
+
+  api: {
+    Notif_By_Pin: 8000,
+    Notif_By_District: 8001,
+  },
 };
 
 /*

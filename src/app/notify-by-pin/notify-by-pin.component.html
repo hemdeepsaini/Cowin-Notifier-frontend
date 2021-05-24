@@ -1,0 +1,47 @@
+<div id="main-box">
+
+  <div class="text-white barBg">
+    <h1 style="margin:0px;padding:10px;"><b>Pin  Cowin-Notifier</b></h1>
+    <h3 id="asd">Fields marked with * are required</h3>
+  </div>
+
+
+
+  <form [formGroup]="PinForm" (ngSubmit)="submit()">
+    <div class="example-container" >
+          
+          <div class="row">
+
+            <div class="col-md-4">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Pin</mat-label>
+                <input matInput required placeholder="Enter process name" formControlName="pin">
+                <mat-error *ngIf="pin.touched && !pin.valid && pin.errors.required "> Please valid Pin</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput required placeholder="Enter process name" formControlName="email">
+                <mat-error *ngIf="email.touched && !email.valid && email.errors.required ">Please select </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input matInput required placeholder="Enter process name" formControlName="age">
+                <mat-error *ngIf="age.touched && !age.valid && age.errors.required ">Please select </mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+          
+        <div class="example-button-row">
+          <button type="submit" mat-raised-button color="primary" [disabled]="!PinForm.valid">Submit</button>
+          <button type="button" mat-raised-button (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+  </form>
+</div>
