@@ -1,3 +1,4 @@
+import { PostService } from './../services/post.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +15,8 @@ export class NotifyByPinComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private toast:ToastrService
+    private toast: ToastrService,
+    private service:PostService,
   ) { }
 
 ngOnInit(): void {
@@ -55,13 +57,12 @@ ngOnInit(): void {
     console.log(pinmodel)
     this.toast.success("Tailoring Added Successfully");
     this.PinForm.reset();
-      // this.tailorservice.post(tailormodel).subscribe(res=>{
-      //   //save data
-      //   //console.log(res);
-      //   this.emitSave.emit(res);
-      //   this.toast.success("Tailoring Added Successfully");
-      //       
-      // })
+      this.service.postOrder(pinmodel).subscribe(res=>{
+        //save data
+        console.log(res);
+        this.toast.success("Pin Added Successfully")
+ 
+      })
     }
 
   cancel() {
