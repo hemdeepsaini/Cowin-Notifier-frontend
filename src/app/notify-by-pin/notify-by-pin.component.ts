@@ -1,4 +1,4 @@
-// import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PinModel} from './Pin-model'
@@ -14,6 +14,7 @@ export class NotifyByPinComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
+    private toast:ToastrService
   ) { }
 
 ngOnInit(): void {
@@ -29,7 +30,7 @@ ngOnInit(): void {
       age: ['',[
         Validators.required,
         Validators.maxLength(3),
-        Validators.pattern('^([a-zA-Z]){1}([0-9]){2}?$'),
+        // Validators.pattern('^([a-zA-Z]){1}([0-9]){2}?$'),
       ]],
     })
 }
@@ -52,12 +53,14 @@ ngOnInit(): void {
    
     
     console.log(pinmodel)
+    this.toast.success("Tailoring Added Successfully");
+    this.PinForm.reset();
       // this.tailorservice.post(tailormodel).subscribe(res=>{
       //   //save data
       //   //console.log(res);
       //   this.emitSave.emit(res);
       //   this.toast.success("Tailoring Added Successfully");
-      //   this.tailorForm.reset();    
+      //       
       // })
     }
 
