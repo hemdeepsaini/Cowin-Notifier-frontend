@@ -12,26 +12,32 @@ import { PinModel} from './Pin-model'
 export class NotifyByPinComponent implements OnInit {
 
   PinForm: FormGroup;
+  turn: Boolean;
   
   constructor(
     private fb: FormBuilder,
     private toast: ToastrService,
-    private service:PostService,
+    private service: PostService,
   ) { }
 
-ngOnInit(): void {
+  ngOnInit(): void {
+    this.turn = true;
     this.PinForm = this.fb.group({
       pin: ['',[
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(6),
+        Validators.pattern('^[0-9]*$'),
         ]],
       email: ['',[
         Validators.required,
+        Validators.email,
       ]],
       age: ['',[
         Validators.required,
-        Validators.maxLength(3),
+        Validators.maxLength(2),
+        Validators.minLength(1),
+        Validators.pattern('^[0-9]*$'),
         // Validators.pattern('^([a-zA-Z]){1}([0-9]){2}?$'),
       ]],
     })
@@ -52,22 +58,21 @@ ngOnInit(): void {
     pinmodel.pin = this.pin.value;
     pinmodel.age = this.age.value;
     pinmodel.email = this.email.value;
-   
-    
-    console.log(pinmodel)
-    console.log(JSON.stringify(pinmodel));
+    // console.log(pinmodel)
+    // console.log(JSON.stringify(pinmodel));
+
     this.PinForm.reset();
+
       this.service.postOrder(pinmodel).subscribe(res=>{
-        //save data
         console.log(res);
-        this.toast.success("Pin Added Successfully")
- 
+        this.toast.success("Pin Added Successfully", 'Success');
+        this.turn = false;
       })
     }
 
-  cancel() {
+  // cancel() {
     
-  }
+  // }
 
   
 }

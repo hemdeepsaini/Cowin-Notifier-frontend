@@ -3,24 +3,24 @@
     <h1 style="margin-left:10%;padding:10px"><b>Pin  Cowin-Notifier</b></h1>
 </div>
 <div id="main-box">
+  <div *ngIf="turn">
   <form [formGroup]="PinForm" (ngSubmit)="submit()">
     <div class="top" >
-          
           <div class="row">
 
             <div class="col-md-4">
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Pin</mat-label>
                 <input matInput required placeholder="Enter Pin" formControlName="pin">
-                <mat-error *ngIf="pin.touched && !pin.valid && pin.errors.required "> Please valid Pin</mat-error>
+                <mat-error *ngIf="pin.touched && !pin.valid "> Please enter a valid Pin</mat-error>
               </mat-form-field>
             </div>
 
             <div class="col-md-4">
               <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput required placeholder="Enter email id" formControlName="email">
-                <mat-error *ngIf="email.touched && !email.valid && email.errors.required ">Please select </mat-error>
+                <input matInput required placeholder="Enter email id" formControlName="email" type="email">
+                <mat-error *ngIf="email.touched && !email.valid">Please enter a valid email id </mat-error>
               </mat-form-field>
             </div>
 
@@ -28,7 +28,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Age</mat-label>
                 <input matInput required placeholder="Enter Age" formControlName="age">
-                <mat-error *ngIf="age.touched && !age.valid && age.errors.required ">Please select </mat-error>
+                <mat-error *ngIf="age.touched && !age.valid">Please enter a valid age </mat-error>
               </mat-form-field>
             </div>
 
@@ -38,14 +38,16 @@
             <h5 id="asd">Fill the fields carefully otherwise you will Not recieve notification</h5>
           </div>
           <div class="col-md-2"> 
-          <button type="submit" mat-raised-button color="primary" [disabled]="!PinForm.valid">Submit</button> 
-          <button type="button" mat-raised-button (click)="cancel()" style="margin-left: 8px;">Cancel</button>
+          <button type="submit" mat-raised-button color="primary"  [disabled]="!PinForm.valid">Submit</button> 
+          <!-- <button type="button" mat-raised-button (click)="cancel()" style="margin-left: 8px;">Cancel</button> -->
         </div>
         </div>
-        
-        
-        
     </div>
   </form>
+  </div>
+
+  <div *ngIf="!turn">
+    <h2>You will recieve an email notification to the submitted email address, whenever slots are available at your pin code.</h2>
+  </div>
 </div>
 </div>

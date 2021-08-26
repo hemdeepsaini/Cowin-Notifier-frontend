@@ -51,3 +51,6 @@ button {
   margin: 0px;
 }
 
+#toast-container > div {
+    opacity:1;
+}

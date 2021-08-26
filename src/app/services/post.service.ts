@@ -8,6 +8,8 @@ import { PinModel } from '../notify-by-pin/Pin-model';
 export class PostService {
 
   private baseUrl = "http://127.0.0.1:8000";
+  // private baseUrl = "https://cowin-notifier-api.herokuapp.com/";
+
   private cowinUrl = "https://cdn-api.co-vin.in/api/v2";
 //  https://cdn-api.co-vin.in/api/v2/admin/location/states
 //  https://cdn-api.co-vin.in/api/v2/admin/location/districts/12
