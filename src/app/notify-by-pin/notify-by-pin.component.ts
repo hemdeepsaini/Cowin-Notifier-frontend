@@ -58,13 +58,13 @@ export class NotifyByPinComponent implements OnInit {
     pinmodel.pin = this.pin.value;
     pinmodel.age = this.age.value;
     pinmodel.email = this.email.value;
-    // console.log(pinmodel)
+    console.log(pinmodel)
     // console.log(JSON.stringify(pinmodel));
 
     this.PinForm.reset();
 
       this.service.postOrder(pinmodel).subscribe(res=>{
-        console.log(res);
+        // console.log(res);
         this.toast.success("Pin Added Successfully", 'Success');
         this.turn = false;
       })
