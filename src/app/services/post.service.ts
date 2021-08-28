@@ -7,7 +7,8 @@ import { PinModel } from '../notify-by-pin/Pin-model';
 })
 export class PostService {
 
-  private baseUrl="http://127.0.0.1:8000"
+  // private baseUrl = "http://127.0.0.1:8000";
+  private baseUrl = "https://cowin-notifier-api.herokuapp.com";
   constructor(private http: HttpClient) { }
 
   postOrder(data: PinModel): any {
