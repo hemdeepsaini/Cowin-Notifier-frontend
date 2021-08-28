@@ -7,11 +7,11 @@
 
     // Serve only the static files form the dist directory
     
-    app.use(express.static(path.join(__dirname, 'dist','cowin-notifier-frontend')));
+    app.use(express.static(path.join(__dirname, 'dist','Cowin-Notifier-frontend')));
 
     app.get('/*', function(req,res) {
         
-    res.sendFile(path.join(__dirname,'dist','cowin-notifier-frontend','index.html'));
+    res.sendFile(path.join(__dirname,'dist','Cowin-Notifier-frontend','index.html'));
     });
 
     
